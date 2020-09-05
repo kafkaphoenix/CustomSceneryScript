@@ -2,6 +2,8 @@ import os, re, sys
 
 from distutils.dir_util import copy_tree
 
+import pathlib
+
 import fileinput, shutil
 
 """
@@ -14,7 +16,7 @@ Go to https://github.com/TheBeardedNorwichian/3DMtoMSFS to the section
 Import capture into Blender, tidy up, and export
 """
 
-path = os.getcwd() 
+path = str(pathlib.Path(__file__).parent.absolute())
 example_project_path = path + '\\SimpleScenery'
 
 new_project_name = input('Type the name of the new project: ')
