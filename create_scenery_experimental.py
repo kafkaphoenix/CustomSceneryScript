@@ -28,24 +28,26 @@ CAN_BE_REFERENCED = 'false'
 
 FSX_COMPATIBILITY = 'false'
 
+DEFAULT_DIRECTORY = ''
+
 # XML_TEMPLATES
 
 PACKAGE_DEFINITIONS_BUSINESS_XML = [
     '{',
-    '   "PriceInUSD": 0.25',
-    '   "ThirdPartyShortName": "mycompany"',
-    '   "ThirdPartyUaid": ""',
-    '   "releaseDate": "2020-1-1"',
+    '  "PriceInUSD": 0.25,',
+    '  "ThirdPartyShortName": "mycompany",',
+    '  "ThirdPartyUaid": "",',
+    '  "releaseDate": "2020-1-1"',
     '}',
 ]
 
 MAIN_XML = [
     '<Project Version="2" Name="SceneryProject" FolderName="Packages">',
-    '   <OutputDirectory>.</OutputDirectory>',
-	'   <TemporaryOutputDirectory>_PackageInt</TemporaryOutputDirectory>',
-	'       <Packages>',
-	'           <Package>PackageDefinitions\mycompany-scene.xml</Package>',
-	'       </Packages>',
+    '    <OutputDirectory>.</OutputDirectory>',
+	'    <TemporaryOutputDirectory>_PackageInt</TemporaryOutputDirectory>',
+	'    <Packages>',
+	'        <Package>PackageDefinitions\mycompany-scene.xml</Package>',
+	'    </Packages>',
     '</Project>',
 ]
 
@@ -100,10 +102,13 @@ def main():
     print('Happy time adding new sceneries in the future!')
 
 def setup():
-    path = input('Type a directory path or just push enter if you want this directory by default: ')
-    
-    if path == '':
-        path = str(pathlib.Path(__file__).parent.absolute())
+    if DEFAULT_DIRECTORY == '':
+        path = input('Type a directory path or just push enter key if you want the script directory by default: ')
+        
+        if path == '':
+            path = str(pathlib.Path(__file__).parent.absolute())
+    else:
+        path =  DEFAULT_DIRECTORY
     
     while True:
         new_project_name = input('Type the name of the new project: ')
@@ -139,7 +144,7 @@ def create_folders(new_project_name, new_project_name_path):
         if several_models == 'Y':
             number = int(input('How many? '))
             for n in range(number, 0, -1):
-                name = input('Model ' + str(n) + '. Type the name: ')
+                name = input('Model ' + str(number - n) + '. Type the name: ')
                 os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
             break
         elif several_models == 'n':
@@ -155,27 +160,27 @@ def create_files(new_project_name, new_project_name_path):
 
     filename_path = new_project_name_path + '\\' + filename
     with open(filename_path, 'w') as f:
-        f.writelines(MAIN_XML)
+        f.write('\n'.join(MAIN_XML) + '\n')
 
     if I_AM_A_COMPANY:
         filename_path = new_project_name_path + '\\PackageDefinitions\\' + COMPANY_NAME + '-' + filename
         with open(filename_path, 'w') as f:
-            f.writelines(PACKAGE_DEFINITIONS_XML)
+            f.write('\n'.join(PACKAGE_DEFINITIONS_XML) + '\n')
 
         filename_path = new_project_name_path + '\\PackageDefinitions\\' + COMPANY_NAME + '-' + new_project_name + '\\Business.json' 
         with open(filename_path, 'w') as f:
-            f.writelines(PACKAGE_DEFINITIONS_BUSINESS_XML)
+            f.write('\n'.join(PACKAGE_DEFINITIONS_BUSINESS_XML) + '\n')
 
         customize_files_business(COMPANY_NAME + '-' + new_project_name, new_project_name, new_project_name_path)
 
     else:
         filename_path = new_project_name_path + '\\PackageDefinitions\\' + filename
         with open(filename_path, 'w') as f:
-            f.writelines(PACKAGE_DEFINITIONS_XML)
+            f.write('\n'.join(PACKAGE_DEFINITIONS_XML) + '\n')
 
         filename_path = new_project_name_path + '\\PackageDefinitions\\' + new_project_name + '\\Business.json' 
         with open(filename_path, 'w') as f:
-            f.writelines(PACKAGE_DEFINITIONS_BUSINESS_XML)
+            f.write('\n'.join(PACKAGE_DEFINITIONS_BUSINESS_XML) + '\n')
 
         customize_files(new_project_name, new_project_name_path)
 
