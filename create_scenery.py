@@ -4,16 +4,14 @@ from distutils.dir_util import copy_tree
 
 import pathlib
 
-import fileinput, shutil
+import shutil
 
 """
 Python Script to generate a CustomScenery folder for FS2020
-You need to have SimpleScenery in the same folder than the script
-Disclaimer: You still need to export the blender project and go to 
-<project_folder>\PackageSources\modelLib\<Project_name>Model\<project_name>.xml
-to change XML version number to '1.1' and add 'encoding="utf-8"
-Go to https://github.com/TheBeardedNorwichian/3DMtoMSFS to the section
-Import capture into Blender, tidy up, and export
+
+Disclaimer: You still need to export the blender project
+To learn how to do this go to https://github.com/TheBeardedNorwichian/3DMtoMSFS
+to the section Import capture into Blender, tidy up, and export
 """
 
 path = str(pathlib.Path(__file__).parent.absolute())
@@ -63,7 +61,7 @@ with open(filename, 'r+') as f:
     f.write(text)
     f.truncate()
 
-filename = new_project_name_path + '\\' + '\\PackageDefinitions\\' + new_project_name + '.xml'
+filename = new_project_name_path + '\\PackageDefinitions\\' + new_project_name + '.xml'
 with open(filename, 'r+') as f:
     text = f.read()
     text = re.sub('mycompany-scene', new_project_name, text)
