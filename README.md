@@ -3,8 +3,7 @@ Python Script to generate a CustomScenery folder for FS2020
 
 You need to have SimpleScenery in the same folder than the script
 
-Disclaimer: You still need to export the blender project
-To learn how to do this go to https://github.com/TheBeardedNorwichian/3DMtoMSFS
+Disclaimer: You still need to export the blender project. To learn how to do this go to https://github.com/TheBeardedNorwichian/3DMtoMSFS
 to the section Import capture into Blender, tidy up, and export
 
 # Features
