@@ -148,8 +148,8 @@ def create_folders(new_project_name, new_project_name_path):
                 os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
             break
         elif several_models == 'n':
-            os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + new_project_name + 'Model')
-
+            name = input('Model 0. Type the name: ')
+            os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
             break
 
 
@@ -187,16 +187,16 @@ def create_files(new_project_name, new_project_name_path):
 def customize_files(new_project_name, new_project_name_path):
     print('Updating xml files...')
 
-    filename = new_project_name_path + '\\' + new_project_name + '.xml'
-    with open(filename, 'r+') as f:
+    filefilename_pathname = new_project_name_path + '\\' + new_project_name + '.xml'
+    with open(filename_path, 'r+') as f:
         text = f.read()
         text = re.sub('mycompany-scene', new_project_name, text)
         f.seek(0)
         f.write(text)
         f.truncate()
 
-    filename = new_project_name_path + '\\PackageDefinitions\\' + new_project_name + '.xml'
-    with open(filename, 'r+') as f:
+    filename_path = new_project_name_path + '\\PackageDefinitions\\' + new_project_name + '.xml'
+    with open(filename_path, 'r+') as f:
         text = f.read()
         text = re.sub('mycompany-scene', new_project_name, text)
         f.seek(0)
@@ -206,16 +206,16 @@ def customize_files(new_project_name, new_project_name_path):
 def customize_files_business(company_scenery, new_project_name, new_project_name_path):
     print('Updating business properties inside xml files...')
 
-    filename = new_project_name_path + '\\' + new_project_name + '.xml'
-    with open(filename, 'r+') as f:
+    filename_path = new_project_name_path + '\\' + new_project_name + '.xml'
+    with open(filename_path, 'r+') as f:
         text = f.read()
         text = re.sub('mycompany-scene', company_scenery, text)
         f.seek(0)
         f.write(text)
         f.truncate()
     
-    filename = new_project_name_path + '\\PackageDefinitions\\' + company_scenery + '.xml'
-    with open(filename, 'r+') as f:
+    filename_path = new_project_name_path + '\\PackageDefinitions\\' + company_scenery + '.xml'
+    with open(filename_path, 'r+') as f:
         text = f.read()
         text = re.sub('mycompany-scene', company_scenery, text)
         text = re.sub('<VisibleInStore>false', '<VisibleInStore>' + VISIBLE_IN_STORE, text)
@@ -226,9 +226,9 @@ def customize_files_business(company_scenery, new_project_name, new_project_name
         f.truncate()
 
     filename_path = new_project_name_path + '\\PackageDefinitions\\' + company_scenery + '\\Business.json' 
-    with open(filename, 'r+') as f:
+    with open(filename_path, 'r+') as f:
         text = f.read()
-        text = re.sub('"PriceInUSD": 0.25', '"PriceInUSD": ' + PRICE, text)
+        text = re.sub('"PriceInUSD": 0.25', '"PriceInUSD": ' + str(PRICE), text)
         text = re.sub('"ThirdPartyShortName": "mycompany"', '"ThirdPartyShortName": "' + COMPANY_NAME + '"', text)
         text = re.sub('"ThirdPartyUaid": ""', '"ThirdPartyUaid": "' + THIRD_PARTY_UAID + '"', text)
         text = re.sub('"releaseDate": "2020-1-1"', '"releaseDate": "' + RELEASE_DATE + '"', text)
