@@ -63,7 +63,7 @@ with open(filename, 'r+') as f:
     f.write(text)
     f.truncate()
 
-filename = new_project_name_path + '\\' + '\\PackageDefinitions\\' + new_project_name + '.xml'
+filename = new_project_name_path + '\\PackageDefinitions\\' + new_project_name + '.xml'
 with open(filename, 'r+') as f:
     text = f.read()
     text = re.sub('mycompany-scene', new_project_name, text)
