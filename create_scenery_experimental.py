@@ -187,7 +187,7 @@ def create_files(new_project_name, new_project_name_path):
 def customize_files(new_project_name, new_project_name_path):
     print('Updating xml files...')
 
-    filefilename_pathname = new_project_name_path + '\\' + new_project_name + '.xml'
+    filename_path = new_project_name_path + '\\' + new_project_name + '.xml'
     with open(filename_path, 'r+') as f:
         text = f.read()
         text = re.sub('mycompany-scene', new_project_name, text)
