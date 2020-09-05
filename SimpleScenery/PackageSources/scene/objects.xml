@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<FSData version="9.0">
+	<!--SceneryObject name: Light_Sample-->
+	<SceneryObject lat="25.05060418911918" lon="-77.47305751166462" alt="0.00000000000000" pitch="0.000000" bank="0.000000" heading="-179.999995" imageComplexity="VERY_SPARSE" altitudeIsAgl="TRUE" snapToGround="TRUE" snapToNormal="FALSE">
+		<LibraryObject name="{8396D176-1549-4772-A6E0-A54E5A0EE216}" scale="1.000000"/>
+	</SceneryObject>
+	<!--SceneryObject name: SampleMyBox-->
+	<SceneryObject lat="25.05112705300210" lon="-77.47373611527840" alt="0.00000000000000" pitch="0.001414" bank="-0.001414" heading="132.619133" imageComplexity="VERY_SPARSE" altitudeIsAgl="TRUE" snapToGround="TRUE" snapToNormal="FALSE">
+		<LibraryObject name="{B5A61705-97EF-4CC3-A058-4EB7743564CF}" scale="50.000000"/>
+	</SceneryObject>
+</FSData>
+
