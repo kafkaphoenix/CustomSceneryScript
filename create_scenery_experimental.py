@@ -145,11 +145,11 @@ def create_folders(new_project_name, new_project_name_path):
             number = int(input('How many? '))
             for n in range(number, 0, -1):
                 name = input('Model ' + str(number - n) + '. Type the name: ')
-                os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
+                os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name)
             break
         elif several_models == 'n':
             name = input('Model 0. Type the name: ')
-            os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
+            os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name)
             break
 
 
