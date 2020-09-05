@@ -10,16 +10,16 @@ Import capture into Blender, tidy up, and export
 
 # Features
 
-- Creating new project taking as reference \SimpleScenery
+- Create new project taking as reference \SimpleScenery
 
-- Copying default files to the folder
+- Copy default files to the folder
 
-- Deleting modelLib subfolders
+- Delete modelLib subfolders
 
-- Deleting objects.xml from PackageSources\scene
+- Delete objects.xml from PackageSources\scene
 
-- Creating texture and newprojectModel folders
+- Create texture and newprojectModel folders
 
-- Renaming default files and folders
+- Rename default files and folders
 
-- Replacing wrong lines inside xml files
+- Replace wrong lines inside xml files
