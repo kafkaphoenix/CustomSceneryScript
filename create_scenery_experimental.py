@@ -93,8 +93,7 @@ def main():
         new_project_name, new_project_name_path = setup()
         create_folders(new_project_name, new_project_name_path)
         create_files(new_project_name, new_project_name_path)
-        customize_files()
-        new_one = input('Do you want to create another project? Y/n')
+        new_one = input('Do you want to create another project? Y/n ')
         if new_one == 'n':
             break;
 
@@ -103,13 +102,13 @@ def main():
 def setup():
     path = input('Type a directory path or just push enter if you want this directory by default: ')
     
-    if path is None:
+    if path == '':
         path = str(pathlib.Path(__file__).parent.absolute())
     
     while True:
         new_project_name = input('Type the name of the new project: ')
         new_project_name_path = path + '\\' + new_project_name
-        if not os.path.exists(new_project_name):
+        if not os.path.exists(new_project_name_path):
             break
         print('Project folder already exists!')
 
@@ -136,11 +135,11 @@ def create_folders(new_project_name, new_project_name_path):
     os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\texture')
     os.mkdir(new_project_name_path + '\\PackageSources\\scene')
     while True:
-        several_models = input('Are you going to create several models? Y/n')
+        several_models = input('Are you going to create several models? Y/n ')
         if several_models == 'Y':
-            number = input('How many?')
+            number = int(input('How many? '))
             for n in range(number, 0, -1):
-                name = input('Model ' + n + '. Type the name: ')
+                name = input('Model ' + str(n) + '. Type the name: ')
                 os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
             break
         elif several_models == 'n':
