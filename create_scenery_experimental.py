@@ -101,9 +101,9 @@ def main():
     print('Happy time adding new sceneries in the future!')
 
 def setup():
-    path = input('Type a directory path or just push enter if you want this directory by default'
+    path = input('Type a directory path or just push enter if you want this directory by default: ')
     
-    if not (path):
+    if path is None:
         path = str(pathlib.Path(__file__).parent.absolute())
     
     while True:
@@ -140,7 +140,7 @@ def create_folders(new_project_name, new_project_name_path):
         if several_models == 'Y':
             number = input('How many?')
             for n in range(number, 0, -1):
-                name = input('Model ' + n + '. Type the name')
+                name = input('Model ' + n + '. Type the name: ')
                 os.mkdir(new_project_name_path + '\\PackageSources\\modelLib\\' + name + 'Model')
             break
         elif several_models == 'n':
